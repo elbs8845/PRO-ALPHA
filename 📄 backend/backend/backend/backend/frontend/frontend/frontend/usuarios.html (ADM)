@@ -1,0 +1,27 @@
+<h1>Usuários</h1>
+<input id="nome" placeholder="Nome">
+<input id="email" placeholder="Email">
+<input id="senha" placeholder="Senha">
+<select id="perfil">
+  <option value="vendedor">Vendedor</option>
+  <option value="supervisor">Supervisor</option>
+</select>
+<button onclick="criar()">Criar</button>
+
+<script>
+function criar(){
+ fetch('http://localhost:3000/usuarios',{
+  method:'POST',
+  headers:{
+   'Content-Type':'application/json',
+   authorization:localStorage.token
+  },
+  body:JSON.stringify({
+    nome:nome.value,
+    email:email.value,
+    senha:senha.value,
+    perfil:perfil.value
+  })
+ });
+}
+</script>
