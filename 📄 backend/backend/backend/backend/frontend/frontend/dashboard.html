@@ -1,0 +1,15 @@
+<h1>Resumo de Vendas</h1>
+<div id="dados"></div>
+
+<script>
+fetch('http://localhost:3000/dashboard', {
+ headers:{ authorization: localStorage.token }
+})
+.then(r=>r.json())
+.then(d=>{
+ dados.innerHTML = `
+  Total Vendido: R$ ${d.total}<br>
+  Meta: R$ ${d.meta}
+ `;
+});
+</script>
