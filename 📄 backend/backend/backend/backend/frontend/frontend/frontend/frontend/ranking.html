@@ -1,0 +1,12 @@
+<h1>Ranking</h1>
+<div id="ranking"></div>
+
+<script>
+fetch('http://localhost:3000/ranking',{
+ headers:{ authorization: localStorage.token }
+})
+.then(r=>r.json())
+.then(d=>{
+ ranking.innerHTML = d.map((u,i)=>`${i+1}º ${u.nome} - R$ ${u.total}`).join('<br>');
+});
+</script>
