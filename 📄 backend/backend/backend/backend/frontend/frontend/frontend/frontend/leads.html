@@ -1,0 +1,22 @@
+<h1>Leads</h1>
+<input id="nome" placeholder="Nome">
+<input id="telefone" placeholder="Telefone">
+<input id="email" placeholder="Email">
+<button onclick="add()">Salvar</button>
+
+<script>
+function add(){
+ fetch('http://localhost:3000/leads',{
+  method:'POST',
+  headers:{
+    'Content-Type':'application/json',
+    authorization:localStorage.token
+  },
+  body:JSON.stringify({
+    nome:nome.value,
+    telefone:telefone.value,
+    email:email.value
+  })
+ });
+}
+</script>
